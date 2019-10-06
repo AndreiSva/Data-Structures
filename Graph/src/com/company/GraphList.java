@@ -3,6 +3,7 @@ package com.company;
 import java.beans.VetoableChangeListener;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class GraphList {
@@ -19,6 +20,28 @@ public class GraphList {
             Vertices[i] = new ArrayList<Node>();
         }
     }
+
+    public void mst(Node start){
+        PriorityQueue<Node> p = new PriorityQueue<>(new NodeComparator());
+        p.add(start);
+        start.visited = true;
+
+        while(!p.isEmpty()){
+            Node head = p.poll();
+            System.out.println(head.v);
+
+            for (Node i: Vertices[head.index]){
+
+                System.out.println(i.v);
+                if (i.visited != true){
+                    p.add(i);
+                    i.visited = true;
+                }
+            }
+            }
+
+        }
+
 
     public void bfs(Node start){
 
@@ -43,8 +66,9 @@ public class GraphList {
 
     }
 
-    public void AddEdge(Node v1, Node v2)
+    public void AddEdge(Node v1, Node v2, int lenght)
     {
         Vertices[v1.index].add(v2);
+        v2.lenght = lenght;
     }
 }

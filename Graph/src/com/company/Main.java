@@ -14,16 +14,13 @@ public class Main {
         Node E = new Node("E",4);
         Node F = new Node("F",5);
 
-        g.AddEdge(A,B);
-        g.AddEdge(A,C);
-        g.AddEdge(B,D);
-        g.AddEdge(B,E);
-        g.AddEdge(C,D);
-        g.AddEdge(C,F);
-        g.AddEdge(F,D);
-        g.AddEdge(F,C);
+        g.AddEdge(A,B, 5);
+        g.AddEdge(A,C,10);
+        g.AddEdge(C,E,3);
+        g.AddEdge(B,D,1);
+        g.AddEdge(B,E,4);
 
-        g.bfs(A);
+        g.mst(A);
 
 
 
